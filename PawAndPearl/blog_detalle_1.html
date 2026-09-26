@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Vacunación Esencial | Paw&amp;Pearl</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#fff9ed] text-[#18354c]">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#fff9ed]/95 backdrop-blur border-b border-[#18354c]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-2 text-[#087f8c] font-bold text-2xl">
+        <i data-lucide="paw-print" class="w-8 h-8 text-[#ffd15c]"></i>
+        <span>Paw&amp;Pearl</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 font-semibold">
+        <a href="index.html" class="hover:text-[#087f8c] transition">Inicio</a>
+        <a href="tienda.html" class="hover:text-[#087f8c] transition">Tienda</a>
+        <a href="servicios.html" class="hover:text-[#087f8c] transition">Servicios</a>
+        <a href="nosotros.html" class="hover:text-[#087f8c] transition">Nosotros</a>
+        <a href="blogs.html" class="text-[#087f8c] font-bold">Blog</a>
+        <a href="contacto.html" class="hover:text-[#087f8c] transition">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="carrito.html" class="p-2 rounded-full hover:bg-[#087f8c]/10 transition"><i data-lucide="shopping-bag" class="w-6 h-6"></i></a>
+        <a href="login.html" class="bg-[#087f8c] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#06646f] transition">Ingresar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DETALLE DEL ARTÍCULO -->
+  <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <a href="blogs.html" class="inline-flex items-center gap-2 text-[#087f8c] font-bold mb-6 hover:underline">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver al Blog
+    </a>
+
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-[#18354c]/10">
+      <span class="text-xs font-bold uppercase tracking-widest text-[#087f8c]">Salud Preventiva • 22 Sep 2026</span>
+      <h1 class="text-3xl sm:text-5xl font-bold mt-2 mb-6">Calendario de Vacunación Esencial en 2026</h1>
+
+      <div class="rounded-2xl overflow-hidden h-72 sm:h-96 mb-8">
+        <img src="assets/img/1-blogDetalle.jpg" alt="Vacunación Canina" class="w-full h-full object-cover">
+      </div>
+
+      <div class="space-y-4 text-[#5f7180] leading-relaxed text-base sm:text-lg">
+        <p>Mantener al día el esquema de inmunización de tu mascota es el pilar fundamental para prevenir enfermedades infecciosas graves. En <strong>Paw&amp;Pearl</strong>, diseñamos protocolos adaptados a la edad y exposición de cada cachorro o perro adulto.</p>
+        
+        <h2 class="text-2xl font-bold text-[#18354c] mt-6 mb-2">Esquema Básico para Cachorros</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>6 a 8 semanas:</strong> Primera dosis de vacuna Séxtuple / Octuple (Parvovirus, Distemper, Hepatitis, Parainfluenza).</li>
+          <li><strong>10 a 12 semanas:</strong> Segunda dosis de refuerzo + vacuna contra la Tos de las Kennels (KC).</li>
+          <li><strong>16 semanas:</strong> Tercera dosis de refuerzo y primera dosis de la vacuna Antirrábica.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#18354c] mt-6 mb-2">Refuerzos Anuales en Adultos</h2>
+        <p>Una vez completado el esquema de cachorro, los perros adultos requieren revacunación anual tanto de la Octuple como de la Antirrábica para mantener sus anticuerpos activados.</p>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-gray-100 flex justify-between items-center">
+        <span class="text-sm font-semibold text-[#18354c]">Escrito por Dr. Ricardo Soto - Médico Veterinario</span>
+        <a href="contacto.html" class="bg-[#f1665d] text-white font-bold px-6 py-2.5 rounded-full hover:opacity-90 transition">Agendar Vacuna</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="bg-[#18354c] text-white py-8 text-center text-xs text-gray-400">
+    &copy; 2026 Paw&amp;Pearl. Todos los derechos reservados.
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* Variables de Marca Paw&Pearl */
+:root {
+  --pearl-primary: #087f8c;
+  --pearl-secondary: #f1665d;
+  --pearl-accent: #ffd15c;
+  --pearl-bg: #fff9ed;
+  --pearl-dark: #18354c;
+  --pearl-muted: #5f7180;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--pearl-bg);
+  color: var(--pearl-dark);
+}
+
+
+/* Responsividad mediante Media-Queries personalizadas */
+@media (min-width: 360px) {
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

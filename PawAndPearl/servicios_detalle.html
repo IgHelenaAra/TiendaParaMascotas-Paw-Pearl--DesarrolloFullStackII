@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Servicio | Paw&amp;Pearl</title>
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  
+  <!-- Estilos Globales -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#fff9ed] text-[#18354c] font-sans flex flex-col min-h-screen">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-[#18354c]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Principal -->
+      <a href="index.html" class="flex items-center gap-2 text-[#087f8c] font-bold text-xl md:text-2xl hover:text-[#06646f] transition-colors">
+        <i data-lucide="paw-print" class="w-8 h-8 text-[#ffd15c] shrink-0"></i>
+        <span class="truncate">Paw&amp;Pearl</span>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-[#18354c]">
+        <a href="index.html" class="hover:text-[#087f8c] transition-colors">Inicio</a>
+        <a href="tienda.html" class="hover:text-[#087f8c] transition-colors">Tienda</a>
+        <a href="servicios.html" class="text-[#087f8c] font-bold border-b-2 border-[#087f8c] pb-1">Servicios</a>
+        <a href="nosotros.html" class="hover:text-[#087f8c] transition-colors">Nosotros</a>
+        <a href="blogs.html" class="hover:text-[#087f8c] transition-colors">Blog</a>
+        <a href="contacto.html" class="hover:text-[#087f8c] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Acciones de Usuario (Escritorio) -->
+      <div class="hidden md:flex items-center gap-3 text-sm font-semibold">
+        <a href="mi_solicitud.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          📋 Mi solicitud (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)
+        </a>
+        <a href="carrito.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)
+        </a>
+        <a href="login.html" class="bg-[#087f8c] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#06646f] transition-colors shadow-sm ml-1">
+          Ingresar
+        </a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" class="md:hidden text-[#18354c] hover:text-[#087f8c] focus:outline-none p-2" aria-label="Abrir menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg px-4 py-4 space-y-3 font-medium">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Inicio</a>
+      <a href="tienda.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Tienda</a>
+      <a href="servicios.html" class="block px-3 py-2 rounded-md text-[#087f8c] bg-[#fff9ed] font-semibold border-l-4 border-[#087f8c]">Servicios</a>
+      <a href="nosotros.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Nosotros</a>
+      <a href="blogs.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Blog</a>
+      <a href="contacto.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Contacto</a>
+      <hr class="border-slate-100 my-2">
+      <div class="flex flex-col gap-2">
+        <a href="login.html" class="text-center px-4 py-2 bg-[#087f8c] text-white rounded-full font-bold hover:bg-[#06646f]">Ingresar</a>
+        <div class="flex gap-2">
+          <a href="mi_solicitud.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">📋 Solicitudes (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)</a>
+          <a href="carrito.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL DETALLE SERVICIO -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-grow">
+    
+    <!-- Miga de pan / Botón de retorno -->
+    <a href="servicios.html" class="inline-flex items-center gap-2 text-[#087f8c] font-bold hover:underline mb-6 text-sm">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a Servicios
+    </a>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      
+      <!-- Columna Principal: Información Detallada -->
+      <div class="lg:col-span-2 space-y-8">
+        
+        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#18354c]/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div id="service-icon-bg" class="p-4 bg-[#fff9ed] rounded-2xl text-[#087f8c]">
+              <i id="service-icon" data-lucide="stethoscope" class="w-10 h-10"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#087f8c]">Atención Especializada</span>
+              <h1 id="service-title" class="text-3xl sm:text-4xl font-extrabold text-[#18354c]">Consulta Veterinaria General</h1>
+            </div>
+          </div>
+
+          <p id="service-description-long" class="text-[#5f7180] text-base leading-relaxed mb-6">
+            Nuestro servicio médico veterinario está diseñado para proporcionar una evaluación de salud exhaustiva. Realizamos revisiones completas del estado clínico de tu mascota, garantizando un trato cercano, respetuoso y con tecnología de última generación.
+          </p>
+
+          <hr class="border-gray-100 my-6">
+
+          <h3 class="text-xl font-bold text-[#18354c] mb-4">¿Qué incluye este servicio?</h3>
+          <ul id="service-includes" class="space-y-3 text-[#5f7180] text-sm">
+            <li class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-[#087f8c] shrink-0 mt-0.5"></i>
+              Examen físico completo (revisión cardiaca, pulmonar, auditiva y bucal).
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-[#087f8c] shrink-0 mt-0.5"></i>
+              Control de peso y medición de constantes vitales.
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-[#087f8c] shrink-0 mt-0.5"></i>
+              Emisión de receta médica y plan de tratamiento personalizado.
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-[#087f8c] shrink-0 mt-0.5"></i>
+              Orientación nutricional y de cuidados preventivos.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Banner Informativo -->
+        <div class="bg-[#087f8c]/10 border border-[#087f8c]/20 p-6 rounded-3xl flex items-start gap-4">
+          <i data-lucide="info" class="w-6 h-6 text-[#087f8c] shrink-0 mt-1"></i>
+          <div>
+            <h4 class="font-bold text-[#087f8c]">Recomendación para tu visita</h4>
+            <p class="text-xs text-[#18354c] mt-1">Te sugerimos traer la libreta sanitaria o carnet de vacunas de tu mascota. Si tu mascota es nerviosa, indícalo al agendar para prepararnos adecuadamente.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna Lateral: Tarjeta de Reserva/Cita -->
+      <div class="space-y-6">
+        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border border-[#18354c]/10 sticky top-24">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#5f7180] block mb-1">Valor referencial</span>
+          <div class="text-3xl font-extrabold text-[#18354c] mb-4" id="service-price">$25.000 <span class="text-xs text-[#5f7180] font-normal">/ sesión</span></div>
+
+          <div class="space-y-4 mb-6 text-sm text-[#5f7180]">
+            <div class="flex items-center gap-3">
+              <i data-lucide="clock" class="w-5 h-5 text-[#087f8c]"></i>
+              <span><strong>Duración:</strong> <span id="service-duration">30 - 45 min</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="calendar" class="w-5 h-5 text-[#087f8c]"></i>
+              <span><strong>Disponibilidad:</strong> Lunes a Sábado</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-[#087f8c]"></i>
+              <span>Atención presencial en clínica</span>
+            </div>
+          </div>
+
+          <a href="contacto.html" class="w-full bg-[#f1665d] text-white font-bold py-3.5 rounded-full hover:bg-[#d9534a] transition-colors block text-center shadow-md">
+            Agendar Cita
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#18354c] text-white py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div class="space-y-3">
+        <div class="flex items-center justify-center md:justify-start gap-2 text-white font-bold text-xl">
+          <i data-lucide="paw-print" class="w-6 h-6 text-[#ffd15c]"></i>
+          <span class="text-[#ffd15c]">Paw&amp;Pearl</span>
+        </div>
+        <p class="text-xs text-gray-300">Cuidado integral, clínica veterinaria y productos seleccionados para tus mascotas.</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Navegación</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+          <li><a href="tienda.html" class="hover:text-white transition-colors">Tienda</a></li>
+          <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="blogs.html" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Mi Cuenta</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="login.html" class="hover:text-white transition-colors">Iniciar Sesión</a></li>
+          <li><a href="registro.html" class="hover:text-white transition-colors">Registro</a></li>
+          <li><a href="mi_solicitud.html" class="hover:text-white transition-colors">Mis Solicitudes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Contacto</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li>✉️ contacto@pawandpearl.cl</li>
+          <li>📞 +56 9 8765 4321</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-700 text-center text-xs text-gray-400">
+      &copy; 2026 Paw&amp;Pearl. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/regions-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Base de datos dinamica simple según el parámetro en URL (?id=...)
+    const serviciosData = {
+      consulta: {
+        titulo: "Consulta Veterinaria General",
+        icono: "stethoscope",
+        precio: "$25.000",
+        duracion: "30 - 45 min",
+        descripcion: "Nuestro servicio médico veterinario está diseñado para proporcionar una evaluación de salud exhaustiva. Realizamos revisiones completas del estado clínico de tu mascota, garantizando un trato cercano, respetuoso y profesional.",
+        incluye: [
+          "Examen físico completo (revisión cardiaca, pulmonar, auditiva y bucal).",
+          "Control de peso y medición de constantes vitales.",
+          "Emisión de receta médica y plan de tratamiento personalizado.",
+          "Orientación nutricional y de cuidados preventivos."
+        ]
+      },
+      peluqueria: {
+        titulo: "Peluquería y Spa Canino",
+        icono: "scissors",
+        precio: "$20.000 - $35.000",
+        duracion: "60 - 90 min",
+        descripcion: "Ofrecemos una experiencia relajante para renovar el pelaje y la higiene de tu mascota. Utilizamos productos dermatológicos de alta gama adaptados al tipo de piel y pelo de cada perro.",
+        incluye: [
+          "Baño con champú hipoalergénico y acondicionador.",
+          "Corte de pelo según la raza o preferencia del tutor.",
+          "Corte de uñas, limpieza de oídos y vaciado de glándulas si es necesario.",
+          "Secado profesional con cepillado y deslanado."
+        ]
+      },
+      vacunacion: {
+        titulo: "Vacunación y Desparasitación",
+        icono: "syringe",
+        precio: "$18.000",
+        duracion: "20 min",
+        descripcion: "Protege a tu mascota contra las principales enfermedades infecciosas y parásitos. Mantenemos al día el calendario de vacunación para perros y gatos.",
+        incluye: [
+          "Revisión médica rápida previa a la inmunización.",
+          "Aplicación de vacuna (Óctuple, Antirrábica, Séxtuple o KC).",
+          "Aplicación de desparasitante interno/externo.",
+          "Actualización e inscripción en el carnet sanitario oficial."
+        ]
+      }
+    };
+
+    // Obtener parámetro URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceId = urlParams.get('id') || 'consulta';
+    const data = serviciosData[serviceId] || serviciosData['consulta'];
+
+    // Renderizar datos en el DOM
+    document.getElementById('service-title').textContent = data.titulo;
+    document.getElementById('service-price').childNodes[0].nodeValue = data.precio + " ";
+    document.getElementById('service-duration').textContent = data.duracion;
+    document.getElementById('service-description-long').textContent = data.descripcion;
+
+    const iconElem = document.getElementById('service-icon');
+    iconElem.setAttribute('data-lucide', data.icono);
+
+    const includesList = document.getElementById('service-includes');
+    includesList.innerHTML = data.incluye.map(item => `
+      <li class="flex items-start gap-2">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-[#087f8c] shrink-0 mt-0.5"></i>
+        ${item}
+      </li>
+    `).join('');
+
+    // Inicialización de íconos Lucide
+    lucide.createIcons();
+
+    // Menú Móvil
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if(btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+  </script>
+</body>
+</html>

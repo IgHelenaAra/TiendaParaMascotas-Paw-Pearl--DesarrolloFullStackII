@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda | Paw&amp;Pearl</title>
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  
+  <!-- Estilos Globales -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#fff9ed] text-[#18354c] font-sans flex flex-col min-h-screen">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-[#18354c]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Principal -->
+      <a href="index.html" class="flex items-center gap-2 text-[#087f8c] font-bold text-xl md:text-2xl hover:text-[#06646f] transition-colors">
+        <i data-lucide="paw-print" class="w-8 h-8 text-[#ffd15c] shrink-0"></i>
+        <span class="truncate">Paw&amp;Pearl</span>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-[#18354c]">
+        <a href="index.html" class="hover:text-[#087f8c] transition-colors">Inicio</a>
+        <a href="tienda.html" class="text-[#087f8c] font-bold border-b-2 border-[#087f8c] pb-1">Tienda</a>
+        <a href="servicios.html" class="hover:text-[#087f8c] transition-colors">Servicios</a>
+        <a href="nosotros.html" class="hover:text-[#087f8c] transition-colors">Nosotros</a>
+        <a href="blogs.html" class="hover:text-[#087f8c] transition-colors">Blog</a>
+        <a href="contacto.html" class="hover:text-[#087f8c] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Acciones de Usuario (Escritorio) -->
+      <div class="hidden md:flex items-center gap-3 text-sm font-semibold">
+        <a href="mi_solicitud.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          📋 Mi solicitud (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)
+        </a>
+        <a href="carrito.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)
+        </a>
+        <a href="login.html" class="bg-[#087f8c] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#06646f] transition-colors shadow-sm ml-1">
+          Ingresar
+        </a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" class="md:hidden text-[#18354c] hover:text-[#087f8c] focus:outline-none p-2" aria-label="Abrir menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg px-4 py-4 space-y-3 font-medium">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Inicio</a>
+      <a href="tienda.html" class="block px-3 py-2 rounded-md text-[#087f8c] bg-[#fff9ed] font-semibold border-l-4 border-[#087f8c]">Tienda</a>
+      <a href="servicios.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Servicios</a>
+      <a href="nosotros.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Nosotros</a>
+      <a href="blogs.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Blog</a>
+      <a href="contacto.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Contacto</a>
+      <hr class="border-slate-100 my-2">
+      <div class="flex flex-col gap-2">
+        <a href="login.html" class="text-center px-4 py-2 bg-[#087f8c] text-white rounded-full font-bold hover:bg-[#06646f]">Ingresar</a>
+        <div class="flex gap-2">
+          <a href="mi_solicitud.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">📋 Solicitudes (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)</a>
+          <a href="carrito.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CATÁLOGO DE TIENDA -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-grow">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-[#18354c] mb-3">Farmacia &amp; Boutique Canina</h1>
+      <p class="text-[#5f7180] text-base md:text-lg">Medicamentos autorizados, suplementos y accesorios seleccionados para el bienestar de tu mascota.</p>
+    </div>
+
+    <!-- PRODUCTOS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  
+      <!-- Producto 1 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#18354c]/10 flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div>
+          <div class="h-56 overflow-hidden">
+            <img src="assets/img/1-tienda.avif" alt="Alimento Holístico" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-bold uppercase text-[#087f8c]">Nutrición</span>
+            <h3 class="text-xl font-bold mt-1 mb-2 text-[#18354c]">Alimento Holístico Adulto 3kg</h3>
+            <p class="text-[#5f7180] text-sm mb-4">Fórmula balanceada rica en omega 3 y proteínas de alta digestibilidad.</p>
+            <span class="text-2xl font-bold text-[#18354c]">$24.990</span>
+          </div>
+        </div>
+        <div class="p-6 pt-0 space-y-2">
+          <a href="productos_detalle.html?id=prod1" class="block text-center bg-[#f1665d] text-white font-bold py-2.5 rounded-full hover:bg-[#d9534a] transition-colors">Ver Detalle</a>
+          <button onclick="addToCart('prod1', 'Alimento Holístico Adulto 3kg', 24990, 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600')" class="w-full border-2 border-[#087f8c] text-[#087f8c] font-bold py-2 rounded-full hover:bg-[#087f8c] hover:text-white transition-colors">Agregar al Carrito</button>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#18354c]/10 flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div>
+          <div class="h-56 overflow-hidden">
+            <img src="assets/img/2-tienda.jpg" alt="Antiparasitario" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-bold uppercase text-[#087f8c]">Farmacia</span>
+            <h3 class="text-xl font-bold mt-1 mb-2 text-[#18354c]">Antiparasitario NexGard Spectra</h3>
+            <p class="text-[#5f7180] text-sm mb-4">Protección mensual completa contra pulgas, garrapatas y parásitos internos.</p>
+            <span class="text-2xl font-bold text-[#18354c]">$18.500</span>
+          </div>
+        </div>
+        <div class="p-6 pt-0 space-y-2">
+          <a href="productos_detalle.html?id=prod2" class="block text-center bg-[#f1665d] text-white font-bold py-2.5 rounded-full hover:bg-[#d9534a] transition-colors">Ver Detalle</a>
+          <button onclick="addToCart('prod2', 'NexGard Spectra', 18500, 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=600')" class="w-full border-2 border-[#087f8c] text-[#087f8c] font-bold py-2 rounded-full hover:bg-[#087f8c] hover:text-white transition-colors">Agregar al Carrito</button>
+        </div>
+      </div>
+  
+      <!-- Producto 3 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#18354c]/10 flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div>
+          <div class="h-56 overflow-hidden">
+            <img src="assets/img/3-tienda.jpg" alt="Champú Hipoalergénico" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-bold uppercase text-[#087f8c]">Estética</span>
+            <h3 class="text-xl font-bold mt-1 mb-2 text-[#18354c]">Champú Dermocosmético 500ml</h3>
+            <p class="text-[#5f7180] text-sm mb-4">Especial para pieles sensibles con extracto de avena orgánica.</p>
+            <span class="text-2xl font-bold text-[#18354c]">$12.900</span>
+          </div>
+        </div>
+        <div class="p-6 pt-0 space-y-2">
+          <a href="productos_detalle.html?id=prod3" class="block text-center bg-[#f1665d] text-white font-bold py-2.5 rounded-full hover:bg-[#d9534a] transition-colors">Ver Detalle</a>
+          <button onclick="addToCart('prod3', 'Champú Dermocosmético', 12900, 'https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&q=80&w=600')" class="w-full border-2 border-[#087f8c] text-[#087f8c] font-bold py-2 rounded-full hover:bg-[#087f8c] hover:text-white transition-colors">Agregar al Carrito</button>
+        </div>
+      </div>
+
+    </div>
+  </main> 
+
+  <!-- FOOTER -->
+  <footer class="bg-[#18354c] text-white py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div class="space-y-3">
+        <div class="flex items-center justify-center md:justify-start gap-2 text-white font-bold text-xl">
+          <i data-lucide="paw-print" class="w-6 h-6 text-[#ffd15c]"></i>
+          <span class="text-[#ffd15c]">Paw&amp;Pearl</span>
+        </div>
+        <p class="text-xs text-gray-300">Cuidado integral, clínica veterinaria y productos seleccionados para tus mascotas.</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Navegación</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+          <li><a href="tienda.html" class="hover:text-white transition-colors">Tienda</a></li>
+          <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="blogs.html" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Mi Cuenta</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="login.html" class="hover:text-white transition-colors">Iniciar Sesión</a></li>
+          <li><a href="registro.html" class="hover:text-white transition-colors">Registro</a></li>
+          <li><a href="mi_solicitud.html" class="hover:text-white transition-colors">Mis Solicitudes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Contacto</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li>✉️ contacto@pawandpearl.cl</li>
+          <li>📞 +56 9 8765 4321</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-700 text-center text-xs text-gray-400">
+      &copy; 2026 Paw&amp;Pearl. Todos los derechos reservados.
+    </div>
+  </footer>  
+
+  <!-- Scripts -->
+  <script src="js/regions-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Inicialización de íconos Lucide
+    lucide.createIcons();
+
+    <!-- Toggle Menú Móvil -->
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if(btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+  </script>
+</body>
+</html>

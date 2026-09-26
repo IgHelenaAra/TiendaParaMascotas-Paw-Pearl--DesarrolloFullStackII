@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito | Paw&amp;Pearl</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#fff9ed] text-[#18354c]">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-[#18354c]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Principal -->
+      <a href="index.html" class="flex items-center gap-2 text-[#087f8c] font-bold text-xl md:text-2xl hover:text-[#06646f] transition-colors">
+        <i data-lucide="paw-print" class="w-8 h-8 text-[#ffd15c] shrink-0"></i>
+        <span class="truncate">Paw&amp;Pearl</span>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-[#18354c]">
+        <a href="index.html" class="text-[#087f8c] font-bold border-b-2 border-[#087f8c] pb-1">Inicio</a>
+        <a href="tienda.html" class="hover:text-[#087f8c] transition-colors">Tienda</a>
+        <a href="servicios.html" class="hover:text-[#087f8c] transition-colors">Servicios</a>
+        <a href="nosotros.html" class="hover:text-[#087f8c] transition-colors">Nosotros</a>
+        <a href="blogs.html" class="hover:text-[#087f8c] transition-colors">Blog</a>
+        <a href="contacto.html" class="hover:text-[#087f8c] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Acciones de Usuario (Escritorio) -->
+      <div class="hidden md:flex items-center gap-3 text-sm font-semibold">
+        <a href="mi_solicitud.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          📋 Mi solicitud (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)
+        </a>
+        <a href="carrito.html" class="bg-[#087f8c]/10 text-[#087f8c] border border-[#087f8c]/20 hover:bg-[#087f8c]/20 px-3 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm">
+          🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)
+        </a>
+        <a href="login.html" class="bg-[#087f8c] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#06646f] transition-colors shadow-sm ml-1">
+          Ingresar
+        </a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" class="md:hidden text-[#18354c] hover:text-[#087f8c] focus:outline-none p-2" aria-label="Abrir menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg px-4 py-4 space-y-3 font-medium">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Inicio</a>
+      <a href="tienda.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Tienda</a>
+      <a href="servicios.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Servicios</a>
+      <a href="nosotros.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Nosotros</a>
+      <a href="blogs.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Blog</a>
+      <a href="contacto.html" class="block px-3 py-2 rounded-md text-[#18354c] hover:text-[#087f8c]">Contacto</a>
+      <hr class="border-slate-100 my-2">
+      <div class="flex flex-col gap-2">
+        <a href="login.html" class="text-center px-4 py-2 bg-[#087f8c] text-white rounded-full font-bold hover:bg-[#06646f]">Ingresar</a>
+        <div class="flex gap-2">
+          <a href="mi_solicitud.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">📋 Solicitudes (<span class="contador-header" data-storage="solicitudesPawPearl">0</span>)</a>
+          <a href="carrito.html" class="w-1/2 text-center py-2 bg-[#087f8c]/10 text-[#087f8c] rounded-full text-xs font-semibold">🛒 Carrito (<span class="contador-header" data-storage="carritoPawPearl">0</span>)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VISTA DE CARRITO DE COMPRAS -->
+  <main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold mb-8">Carrito de Compras</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Lista de Items -->
+      <div class="lg:col-span-2 space-y-4" id="cart-items-container">
+        <!-- Renderizado dinámico vía JS -->
+      </div>
+
+      <!-- Resumen de Pedido -->
+      <div class="bg-white p-6 rounded-3xl shadow-md border border-[#18354c]/10 h-fit">
+        <h2 class="text-xl font-bold mb-4">Resumen del Pedido</h2>
+        
+        <div class="space-y-3 text-sm border-b border-gray-100 pb-4 mb-4">
+          <div class="flex justify-between">
+            <span class="text-[#5f7180]">Subtotal</span>
+            <span id="cart-subtotal" class="font-bold">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[#5f7180]">Envío estimado</span>
+            <span class="font-bold text-green-600">Gratis</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between text-lg font-bold mb-6">
+          <span>Total</span>
+          <span id="cart-total" class="text-[#087f8c]">$0</span>
+        </div>
+
+        <button id="checkout-btn" class="w-full bg-[#087f8c] text-white py-3.5 rounded-full font-bold hover:bg-[#06646f] transition mb-3">Finalizar Compra</button>
+        <button onclick="clearCart()" class="w-full border border-red-300 text-red-500 py-2 rounded-full font-semibold hover:bg-red-50 transition text-sm">Vaciar Carrito</button>
+      </div>
+
+    </div>
+  </main>
+
+    <!-- FOOTER -->
+  <footer class="bg-[#18354c] text-white py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div class="space-y-3">
+        <div class="flex items-center justify-center md:justify-start gap-2 text-white font-bold text-xl">
+          <i data-lucide="paw-print" class="w-6 h-6 text-[#ffd15c]"></i>
+          <span class="text-[#ffd15c]">Paw&amp;Pearl</span>
+        </div>
+        <p class="text-xs text-gray-300">Cuidado integral, clínica veterinaria y productos seleccionados para tus mascotas.</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Navegación</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+          <li><a href="tienda.html" class="hover:text-white transition-colors">Tienda</a></li>
+          <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="blogs.html" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Mi Cuenta</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li><a href="login.html" class="hover:text-white transition-colors">Iniciar Sesión</a></li>
+          <li><a href="registro.html" class="hover:text-white transition-colors">Registro</a></li>
+          <li><a href="mi_solicitud.html" class="hover:text-white transition-colors">Mis Solicitudes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-3 uppercase text-xs tracking-wider text-[#ffd15c]">Contacto</h5>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li>✉️ contacto@pawandpearl.cl</li>
+          <li>📞 +56 9 8765 4321</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-700 text-center text-xs text-gray-400">
+      &copy; 2026 Paw&amp;Pearl. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/regions-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Inicialización de íconos Lucide
+    lucide.createIcons();
+
+    <!-- Toggle Menú Móvil -->
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if(btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+  </script>
+</body>
+</html>
+  <script src="js/main.js"></script>
+  <script>
+    // Lógica para desplegar el carrito desde localStorage
+    document.addEventListener('DOMContentLoaded', renderCart);
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('paw_cart')) || [];
+      const container = document.getElementById('cart-items-container');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const totalEl = document.getElementById('cart-total');
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white p-8 rounded-3xl text-center border border-[#18354c]/10">
+            <p class="text-[#5f7180] mb-4">Tu carrito está vacío.</p>
+            <a href="tienda.html" class="inline-block bg-[#f1665d] text-white font-bold px-6 py-2.5 rounded-full hover:opacity-90 transition">Explorar Tienda</a>
+          </div>
+        `;
+        subtotalEl.textContent = '$0';
+        totalEl.textContent = '$0';
+        return;
+      }
+
+      let total = 0;
+      container.innerHTML = cart.map((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        return `
+          <div class="bg-white p-4 rounded-2xl border border-[#18354c]/10 flex items-center justify-between gap-4">
+            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-xl">
+            <div class="flex-grow">
+              <h3 class="font-bold text-lg">${item.name}</h3>
+              <p class="text-sm text-[#5f7180]">$${item.price.toLocaleString('es-CL')} x ${item.quantity}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-lg text-[#18354c]">$${itemTotal.toLocaleString('es-CL')}</p>
+              <button onclick="removeItem(${index})" class="text-xs text-red-500 font-bold hover:underline mt-1">Eliminar</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `$${total.toLocaleString('es-CL')}`;
+      totalEl.textContent = `$${total.toLocaleString('es-CL')}`;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('paw_cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('paw_cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function clearCart() {
+      localStorage.setItem('paw_cart', JSON.stringify([]));
+      renderCart();
+    }
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Servicios | Paw&amp;Pearl Admin</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="bg-[#fff9ed] text-[#18354c] flex flex-col md:flex-row min-h-screen font-sans">
+
+  <!-- SIDEBAR ADMIN -->
+  <aside class="w-full md:w-64 bg-[#18354c] text-white flex-shrink-0">
+    <div class="p-6 flex items-center gap-3 border-b border-white/10">
+      <i data-lucide="paw-print" class="w-8 h-8 text-[#ffd15c]"></i>
+      <span class="font-bold text-xl tracking-wide">Paw&amp;Pearl</span>
+    </div>
+    <nav class="p-4 space-y-1 font-medium">
+      <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-gray-300 hover:text-white">
+        <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+      </a>
+      <a href="servicios.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#087f8c] text-white font-semibold shadow-sm">
+        <i data-lucide="stethoscope" class="w-5 h-5"></i> Servicios
+      </a>
+      <a href="productos.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-gray-300 hover:text-white">
+        <i data-lucide="package" class="w-5 h-5"></i> Productos
+      </a>
+      <a href="usuarios.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-gray-300 hover:text-white">
+        <i data-lucide="users" class="w-5 h-5"></i> Usuarios
+      </a>
+      <a href="../index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-gray-300 hover:text-white mt-12">
+        <i data-lucide="external-link" class="w-5 h-5"></i> Volver a la Tienda
+      </a>
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1 p-6 md:p-10">
+    <header class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-extrabold text-[#18354c]">Servicios</h1>
+      <a href="servicios_nuevo.html" class="bg-[#10b981] hover:bg-[#059669] text-white font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
+        <i data-lucide="plus" class="w-5 h-5"></i> Nuevo servicio
+      </a>
+    </header>
+
+    <!-- TABLA DE SERVICIOS -->
+    <div class="bg-white rounded-2xl border border-[#18354c]/10 shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-[#f8fafc] border-b border-[#18354c]/10 text-xs text-[#5f7180] font-bold uppercase tracking-wider">
+              <th class="py-4 px-6">Código</th>
+              <th class="py-4 px-6">Categoría</th>
+              <th class="py-4 px-6">Nombre del Servicio</th>
+              <th class="py-4 px-6">Especie</th>
+              <th class="py-4 px-6">Duración</th>
+              <th class="py-4 px-6">Precio</th>
+              <th class="py-4 px-6 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#18354c]/5 text-sm font-medium">
+            <tr class="hover:bg-slate-50 transition">
+              <td class="py-4 px-6 text-[#18354c] font-semibold">SV001</td>
+              <td class="py-4 px-6 text-[#5f7180]">Consultas</td>
+              <td class="py-4 px-6 font-bold text-[#18354c]">Consulta general</td>
+              <td class="py-4 px-6 text-[#5f7180]">Perro / Gato</td>
+              <td class="py-4 px-6 text-[#5f7180]">30 min</td>
+              <td class="py-4 px-6 font-bold text-[#18354c]">$15.000</td>
+              <td class="py-4 px-6 text-center space-x-3">
+                <a href="servicios_editar.html" class="text-[#087f8c] hover:underline font-bold inline-block">Editar</a>
+                <button class="text-rose-500 hover:underline font-bold">Eliminar</button>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="py-4 px-6 text-[#18354c] font-semibold">VA001</td>
+              <td class="py-4 px-6 text-[#5f7180]">Vacunación</td>
+              <td class="py-4 px-6 font-bold text-[#18354c]">Vacuna antirrábica canina</td>
+              <td class="py-4 px-6 text-[#5f7180]">Perro</td>
+              <td class="py-4 px-6 text-[#5f7180]">10 min</td>
+              <td class="py-4 px-6 font-bold text-[#18354c]">$12.000</td>
+              <td class="py-4 px-6 text-center space-x-3">
+                <a href="servicios_editar.html" class="text-[#087f8c] hover:underline font-bold inline-block">Editar</a>
+                <button class="text-rose-500 hover:underline font-bold">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</body>
+</html>
