@@ -18,7 +18,7 @@ Paw_And_Pearl.github.io/
 ├── 🏷️ producto_detalle.html       # Vista detallada de un producto
 ├── 🛒 carrito.html                # Carrito de compras
 ├── 🩺 servicios.html              # Lista de servicios médicos y peluquería
-├── 💉 servicio_detalle.html       # Detalle de un servicio específico
+├── 💉 servicios_detalle.html       # Detalle de un servicio específico
 ├── 📰 blogs.html                  # Listado de artículos y noticias
 ├── 📖 blog_detalle_1.html         # Artículo de blog #1
 ├── 📖 blog_detalle_2.html         # Artículo de blog #2
@@ -45,7 +45,7 @@ Paw_And_Pearl.github.io/
 │   ├── 🎨 css/
 │   │   ├── style.css              # Estilos globales de la tienda pública
 │   │   └── admin.css              # Estilos exclusivos del panel administrativo
-│   └── 🖼️ imagenes/              # Logos, banners e imágenes del sitio
+│   └── 🖼️ imagenes/              # Videos e imágenes del sitio
 │
 └── 📜 js/                         # Lógica Frontend (JavaScript)
     ├── main.js                    # Carrito (localStorage) y validaciones públicas
