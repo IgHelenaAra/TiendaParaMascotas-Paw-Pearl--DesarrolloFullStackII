@@ -41,7 +41,7 @@ Paw_And_Pearl.github.io/
 │   ├── ➕ usuario_nuevo.html      # Formulario para agregar usuario
 │   └── ✏️ usuario_editar.html     # Formulario para editar usuario
 │
-├── 🎨 activos/                    # Recursos Estáticos (Assets)
+├── 🎨 assets/                    # Recursos Estáticos (Activos)
 │   ├── 🎨 css/
 │   │   ├── style.css              # Estilos globales de la tienda pública
 │   │   └── admin.css              # Estilos exclusivos del panel administrativo
